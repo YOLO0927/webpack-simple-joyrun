@@ -2,7 +2,7 @@
   <div style="margin-top: 20px; text-align: center;" id="index">
     <img src="../assets/logo.png" alt="">
     <div>
-      {{ msg }}
+      \{{ msg }}
     </div>
   </div>
 </template>

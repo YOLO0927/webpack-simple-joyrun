@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-itunes-app" content="app-id=881766160">
+    <script type="text/javascript">
+      (function () {
+        var timer = null;
+        function setFontSize () {
+          document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+        }
+        window.addEventListener('resize', function () {
+          clearTimeout(timer)
+          timer = setTimeout(setFontSize, 300)
+        })
+        setFontSize()
+      })()
+    </script>
+    <title>{{ name }}</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/huodong/js/jquery-3.1.1.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/js/jquery.cookie.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/app/nativeService.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/js/share.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/js/js_app_api.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/huodong/2018/01/ceremony/main.js"></script>
+    <!-- 分享配置 -->
+    <script>
+      var share_domain = document.domain;
+      var shareData = {
+        title: "{{ name }}",
+        desc: "{{ name }}活动描述",
+        link: "#",
+        imgUrl: "https://joyrun-activity.b0.upaiyun.com/huodong/2018/01/ceremony/share.jpg"
+      };
+      $(document).ready(function () {
+        var curUrl = encodeURIComponent(window.location.href);
+        $.ajax({
+          type: 'get',
+          url: '//webevent.thejoyrun.com/wechatapi/jsconfig?url='+ curUrl,
+          dataType: 'jsonp',
+          cache: false,
+          success: function(data) {
+            wx.config({
+              debug: false,
+              appId: data.appId,
+              timestamp: data.timestamp,
+              nonceStr: data.nonceStr,
+              signature: data.signature,
+              jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'onMenuShareQZone'
+              ]
+            });
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {}
+        });
+      });
+
+      wx.ready(function () {
+        wx.checkJsApi({
+          jsApiList: [
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'onMenuShareQZone'
+          ]
+        });
+
+        wx.onMenuShareAppMessage(shareData);
+        wx.onMenuShareTimeline(shareData);
+        wx.onMenuShareQQ(shareData);
+        wx.onMenuShareWeibo(shareData);
+        wx.onMenuShareQZone(shareData);
+      });
+
+      wx.error(function(res) {
+        //alert(res.errMsg);
+      });
+      run.menuShare(shareData);
+    </script>
+    <!-- 百度统计 -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?7cfaa882ea03f1adfe434be26cc8a294";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  </body>
+</html>

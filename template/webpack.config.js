@@ -64,7 +64,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -82,7 +82,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    host: 'webevent.cc'
   },
   performance: {
     hints: false

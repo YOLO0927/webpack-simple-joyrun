@@ -20,9 +20,9 @@
       "label": "License",
       "default": "MIT"
     },
-    "sass": {
+    "less": {
        "type": "confirm",
-       "message": "Use sass?",
+       "message": "Use less?",
        "default": false
     }
   },

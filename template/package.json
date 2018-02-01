@@ -30,10 +30,10 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
-    {{#sass}}
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6",
-    {{/sass}}
+    {{#less}}
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    {{/less}}
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",

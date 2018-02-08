@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     {{#if_eq animateType "fade"}};
-    <transition name="router-fade">
-    {{/if_eq}}
+    <transition name="fade">
+      {{/if_eq}}
       <router-view></router-view>
-    {{#if_eq animateType "fade"}};
+      {{#if_eq animateType "fade"}};
     </transition>
     {{/if_eq}}
   </div>
@@ -104,19 +104,13 @@ export default {
 
   {{#if_eq animateType "fade"}};
   /* router fade */
-  .route-fade-enter-active,
-  .route-fade-leave-active {
-    -webkit-transtion: opacity .3s ease-in-out;
-    -moz-transtion: opacity .3s ease-in-out;
-    -o-transtion: opacity .3s ease-in-out;
-    transtion: opacity .3s ease-in-out;
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s
   }
-  .route-fade-enter,
-  .route-fade-leave-active {
-    opacity: 0;
+  .fade-enter, .fade-leave-to {
+    opacity: 0
   }
   {{/if_eq}}
-
   #app {
     width: 100%;
     margin: 0 auto;
@@ -139,22 +133,6 @@ export default {
     clear: both;
   }
   .clearfix { *zoom: 1; }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
-    opacity: 0
-  }
-  .router-fade-enter-active,
-  .router-fade-leave-active {
-    transition: opacity .3s;
-  }
-
-  .router-fade-enter,
-  .router-fade-leave-active {
-    opacity: 0;
-  }
 
   /* -- media query -- */
   @media screen and (max-width: 321px) {

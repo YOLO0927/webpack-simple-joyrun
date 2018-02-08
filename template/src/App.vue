@@ -1,12 +1,8 @@
 <template>
-  <div id="app">
-    {{#if_eq animateType "fade"}};
-    <transition name="fade">
-      {{/if_eq}}
-      <router-view></router-view>
-      {{#if_eq animateType "fade"}};
-    </transition>
-    {{/if_eq}}
+  <div id="app">{{#if_eq animateType "fade"}};
+    <transition name="fade">{{/if_eq}}
+      <router-view></router-view>{{#if_eq animateType "fade"}};
+    </transition>{{/if_eq}}
   </div>
 </template>
 

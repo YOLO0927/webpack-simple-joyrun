@@ -28,14 +28,22 @@
     <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="//joyrun-activity.b0.upaiyun.com/common/js/share.js"></script>
     <script src="//joyrun-activity.b0.upaiyun.com/common/js/js_app_api.js"></script>
-    <script src="//joyrun-activity.b0.upaiyun.com/huodong/2018/01/ceremony/main.js"></script>
+    <script src="//webevent.thejoyrun.com/common/app/main-1.0.js"></script>
     <!-- 分享配置 -->
     <script>
+      if(!$.cookie('ypcookie')) {
+        var index_url = encodeURIComponent(window.location.href)
+        var data = {
+            "id":"openWeb",
+            "url":index_url
+          };
+          jsRunApi.openJS(data);
+      }
       var share_domain = document.domain;
       var shareData = {
         title: "{{ name }}",
         desc: "{{ name }}活动描述",
-        link: "#",
+        link: "https://" + share_domain + "/activity/{{ name }}/",
         imgUrl: "https://joyrun-activity.b0.upaiyun.com/huodong/2018/01/ceremony/share.jpg"
       };
       $(document).ready(function () {

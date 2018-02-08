@@ -24,6 +24,22 @@
        "type": "confirm",
        "message": "Use less?",
        "default": false
+    },
+    "animateType": {
+      "type": "list",
+      "message": "animation type when the router change",
+      "list": [
+        {
+          "name": "fade (fade in and fade out)",
+          "value": "fade",
+          "short": "fade"
+        },
+        {
+          "name": "none (no animation)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
     }
   },
   "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev{{/inPlace}}"

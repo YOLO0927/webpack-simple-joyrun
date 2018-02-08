@@ -1,8 +1,12 @@
 <template>
   <div id="app">
+    {{#if_eq animateType "fade"}};
     <transition name="router-fade">
+    {{/if_eq}}
       <router-view></router-view>
+    {{#if_eq animateType "fade"}};
     </transition>
+    {{/if_eq}}
   </div>
 </template>
 
@@ -98,6 +102,7 @@ export default {
   }
   * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+  {{#if_eq animateType "fade"}};
   /* router fade */
   .route-fade-enter-active,
   .route-fade-leave-active {
@@ -110,15 +115,13 @@ export default {
   .route-fade-leave-active {
     opacity: 0;
   }
+  {{/if_eq}}
 
   #app {
     width: 100%;
     margin: 0 auto;
-    /* overflow: scroll; */
   }
-  .deepRed{
-    color: #98012E;
-  }
+
   .font{
     font-family: 'web-font';
   }

@@ -16,7 +16,7 @@
     + 路由改变时的动画类型: 会根据是否选择动画而判断是否插入动画样式代码;
 
 ### 如何简单扩展或创建自己的小模板
-1.  通过查看 vue-cli 文档下方部分了解如何在模板内判断加入的参数及 meta.json 或 meta.js 内的配置过滤器 
-    + https://github.com/vuejs/vue-cli/tree/master#local-templates 从这里开始看即可
+1.  通过查看 vue-cli 文档下方部分了解如何在模板内判断加入的参数及 meta.json 或 meta.js 内的配置过滤器
+    + https://github.com/vuejs/vue-cli/tree/master#local-templates 从这里开始看即可
 2.  webpack-simple 的 meta.json 与 webpack 的 meta.js 是基于 inquirer 包实现与用户的便捷交互的, 所以需要添加或更改、删除配置可参照文档即可
     + https://www.npmjs.com/package/inquirer

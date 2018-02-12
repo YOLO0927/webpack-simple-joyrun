@@ -64,10 +64,6 @@ export default {
     content: '';
     content: none;
   }
-  @font-face {
-    font-family:'web-font';
-    src: url('//joyrun-activity.b0.upaiyun.com/huodong/2017/12/adisummary/BebasNeue.otf');
-  }
   input {
     margin: 0;
     padding: 0;
@@ -112,9 +108,6 @@ export default {
     margin: 0 auto;
   }
 
-  .font{
-    font-family: 'web-font';
-  }
   /* clear fix */
   .clearfix:after {
     content: "\200B";

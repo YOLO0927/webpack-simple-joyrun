@@ -28,6 +28,7 @@
     "animateType": {
       "type": "list",
       "message": "animation type when the router change",
+      "default": "fade",
       "choices": [
         {
           "name": "fade (fade in and fade out)",

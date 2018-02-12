@@ -34,7 +34,7 @@ export default {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font-family: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -114,12 +114,6 @@ export default {
 
   .font{
     font-family: 'web-font';
-  }
-  .line{
-    background: #464646;;
-    width: 90%;
-    height: 2px;
-    margin: 0 auto;
   }
   /* clear fix */
   .clearfix:after {

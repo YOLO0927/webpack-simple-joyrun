@@ -8,7 +8,8 @@
 1.  仍然基于 webpack-simple 基础上做的一些小改动，并未修改 vue-init 脚本;
 2.  css预处理器选择由 saas => less (个人偏好 less, 而且我个人发现 less 用的人好像多点);
 3.  添加列表选项 路由变换时的动画类型;
-4.  增加了些插件的初始化代码:
+4.  mixins 注入每个模块页面的目的是当刷新页面时，index.html中的分享配置有可能会失效，此时会读取当前单页面模块的分享配置
+5.  增加了些插件的初始化代码:
     + 以下 @ => path: /src 由 webpack 别名(alias) 配置而添加, 依赖已安装 mint-ui, 及修改局部引入的 babel 配置;
     + vue-router: 初始化路由结构及将路由文件单独抽出 => @/router/index;
     + aixos: 初始化请求的根地址为 `'//' + document.domain + '/<project-name>'`, 并初始化所有请求及响应的拦截器, 并插入 mint-ui 的 loading 动画在请求时 open , 在响应时 close;

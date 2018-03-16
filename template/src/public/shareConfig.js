@@ -1,5 +1,5 @@
 export default {
-  mounted () {
+  beforeMounted () {
     var share_domain = document.domain;
     var shareData = {
       title: "{{ name }}",

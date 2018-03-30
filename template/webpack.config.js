@@ -82,8 +82,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true,
-    host: 'webevent.cc'
+    overlay: true
   },
   performance: {
     hints: false

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">{{#if_eq animateType "fade"}};
+  <div id="app">{{#if_eq animateType "fade"}}
     <transition name="fade">{{/if_eq}}
       <router-view></router-view>{{#if_eq animateType "fade"}};
     </transition>{{/if_eq}}

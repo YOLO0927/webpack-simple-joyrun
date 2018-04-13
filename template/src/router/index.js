@@ -5,6 +5,8 @@ import index from '@/pages/index'
 Vue.use(Router)
 
 export default new Router({
+  mode: process.env === 'production' ? 'history' : '',
+  base: process.env === 'production' ? '/activity/{{ name }}' : '',
   routes: [
     {
       path: '/',

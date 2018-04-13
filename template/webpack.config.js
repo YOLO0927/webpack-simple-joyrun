@@ -16,7 +16,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },{{#sass}}
+      },{{#if_eq cssPerprocessor "sass"}}
       {
         test: /\.scss$/,
         use: [
@@ -33,13 +33,13 @@ module.exports = {
           'sass-loader?indentedSyntax'
         ],
       },
-      {{/sass}}
+      {{/if_eq}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
-            {{#sass}}
+            {{#if_eq cssPerprocessor "sass"}}
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this necessary.
@@ -53,7 +53,7 @@ module.exports = {
               'css-loader',
               'sass-loader?indentedSyntax'
             ]
-            {{/sass}}
+            {{/if_eq}}
           }
           // other vue-loader options go here
         }
@@ -84,6 +84,11 @@ module.exports = {
     noInfo: true,
     overlay: true
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env.NODE_ENV)
+    })
+  ],
   performance: {
     hints: false
   },

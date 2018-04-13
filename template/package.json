@@ -30,11 +30,17 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
-    {{#less}}
+    {{#if_eq cssPerprocessor "less"}}
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
-    {{/less}}
+    {{/if_eq}}
+    {{#if_eq cssPerprocessor "sass"}}
+    "node-sass": "^4.8.3",
+    "sass": "^1.1.1",
+    "sass-loader": "^6.0.7",
+    {{#if_eq}}
     "vue-loader": "^13.0.5",
+    "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"

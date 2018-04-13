@@ -20,10 +20,26 @@
       "label": "License",
       "default": "MIT"
     },
-    "less": {
-       "type": "confirm",
-       "message": "Use less?",
-       "default": false
+    "cssPerprocessor": {
+      "type": "list",
+      "message": "Whether or not to use css perprocessor?",
+      "choices": [
+        {
+          "name": "yes, use less",
+          "value": "less",
+          "short": "less"
+        },
+        {
+          "name": "yes, use sass",
+          "value": "sass",
+          "short": "sass"
+        },
+        {
+          "name": "no",
+          "value": "none",
+          "short": "none"
+        }
+      ]
     },
     "animateType": {
       "type": "list",

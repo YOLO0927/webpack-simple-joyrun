@@ -20,5 +20,5 @@ export default {
 }
 </script>
 
-<style {{#less}} lang="less"{{/less}}>
+<style {{#if_eq cssPerprocessor "less"}} lang="less"{{/if_eq}}{{#if_eq cssPerprocessor "sass"}} lang="scss"{{/if_eq}}>
 </style>

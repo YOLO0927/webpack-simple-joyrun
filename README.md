@@ -22,3 +22,5 @@
    + https://github.com/vuejs/vue-cli/tree/master#local-templates 从这里开始看即可
 2. webpack-simple 的 meta.json 与 webpack 的 meta.js 是基于 inquirer 包实现与用户的便捷交互的, 所以需要添加或更改、删除配置可参照文档即可
    + https://www.npmjs.com/package/inquirer
+3. vue-init 的 generate.js 中已经注册了 2 个命令来帮助，我们在模板中判断变量等，`if_eq` 与 `unless_eq`，如果想自己更改 vue-init 自定义更多命令，可以查看
+   + https://github.com/wycats/handlebars.js 在其中去找到 registerHelper 去注册命令

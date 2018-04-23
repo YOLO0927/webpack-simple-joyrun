@@ -62,7 +62,17 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
-      },
+      },{{#lint}}
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [path.join(__dirname, 'src')],
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: true
+        }
+      },{{/lint}}
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
         loader: 'file-loader',
@@ -84,11 +94,6 @@ module.exports = {
     noInfo: true,
     overlay: true
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env.NODE_ENV)
-    })
-  ],
   performance: {
     hints: false
   },

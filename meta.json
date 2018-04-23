@@ -20,6 +20,22 @@
       "label": "License",
       "default": "MIT"
     },
+    "lint": {
+      "type": "confirm",
+      "message": "Use ESLint to lint your code?"
+    },
+    "lintConfig": {
+      "when": "lint",
+      "type": "list",
+      "message": "Pick an ESLint preset",
+      "choices": [
+        {
+          "name": "Standard (https://github.com/standard/standard)",
+          "value": "standard",
+          "short": "Standard"
+        }
+      ]
+    },
     "cssPerprocessor": {
       "type": "list",
       "message": "Whether or not to use css perprocessor?",

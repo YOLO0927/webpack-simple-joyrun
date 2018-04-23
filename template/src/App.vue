@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style{{#less}} lang="less"{{/less}}>
+<style{{#less}} lang="less"{{/less}}{{#if_eq cssPerprocessor "sass"}} lang="scss"{{/if_eq}}>
   /* --- reset style --- */
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,

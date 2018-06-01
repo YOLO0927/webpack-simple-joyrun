@@ -7,5 +7,8 @@ export default {
       imgUrl: 'https://joyrun-activity.b0.upaiyun.com/huodong/2018/01/ceremony/share.jpg'
     }
     this.share(shareData)
+    if (this.nativeService.isJoyRunwebview()) {
+      this.nativeService.setCloseButtonStatus(true)
+    }
   }
 }

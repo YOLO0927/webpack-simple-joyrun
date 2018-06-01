@@ -27,6 +27,7 @@ axios.interceptors.response.use((res) => {
 
 Vue.use(VueAxios, axios)
 Vue.use(externalShare)
+Vue.prototype.nativeService = new nativeService()
 
 new Vue({
   el: '#app',

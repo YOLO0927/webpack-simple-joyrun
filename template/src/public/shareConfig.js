@@ -4,7 +4,7 @@ export default {
       title: '{{ name }}',
       desc: '{{ name }}活动描述',
       link: 'https://' + document.domain + '/activity/{{ name }}/',
-      imgUrl: 'https://joyrun-activity.b0.upaiyun.com/huodong/2018/01/ceremony/share.jpg'
+      imgUrl: 'https://www.thejoyrun.com/img/download.png'
     }
     this.share(shareData)
   }

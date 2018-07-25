@@ -36,6 +36,11 @@
         }
       ]
     },
+    "shareHost": {
+      "type": "string",
+      "required": true,
+      "label": "share url host in wechat"
+    },
     "cssPerprocessor": {
       "type": "list",
       "message": "Whether or not to use css perprocessor?",

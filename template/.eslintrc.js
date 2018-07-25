@@ -25,9 +25,11 @@ module.exports = {
   rules: {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-new': 'off'
+    'no-new': 'off',
+    'new-cap': 'off'
   },
   globals: {
-    "$": true
+    "$": true,
+    "nativeService": true
   }
 }

@@ -7,5 +7,8 @@ export default {
       imgUrl: 'https://www.thejoyrun.com/img/download.png'
     }
     this.share(shareData)
+    if (this.nativeService.isJoyRunwebview()) {
+      this.nativeService.setCloseButtonStatus(true)
+    }
   }
 }

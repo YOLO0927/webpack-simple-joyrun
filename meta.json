@@ -39,7 +39,8 @@
     "shareHost": {
       "type": "string",
       "required": true,
-      "label": "share url host in wechat"
+      "label": "share url host in wechat",
+      "default": "webevent.thejoyrun.com"
     },
     "cssPerprocessor": {
       "type": "list",

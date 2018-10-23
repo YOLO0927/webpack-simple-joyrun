@@ -6,19 +6,6 @@ var CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: '{{ name }}',
-      template: './src/index.html',
-      filename: path.resolve(__dirname, './index.html'),
-      inject: true,
-      alwaysWriteToDisk: false
-    }),
-    new HtmlWebpackHarddiskPlugin({
-      outputPath: path.resolve(__dirname, './index.html')
-    }),
-    new CleanWebpackPlugin(['dist'])
-  ],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: process.env.NODE_ENV === 'production' ? '/activity/dist/' : '/dist/',
@@ -117,21 +104,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '{{ name }}',
-      template: 'src/template/index.html',
+      template: './src/index.html',
       filename: path.resolve(__dirname, './index.html'),
       inject: true,
-      hash: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      alwaysWriteToDisk: true
+      alwaysWriteToDisk: false
     }),
     new HtmlWebpackHarddiskPlugin({
       outputPath: path.resolve(__dirname, './index.html')
-    })
-  ]
+    }),
+    new CleanWebpackPlugin(['dist'])
+  ],
 }
 
 if (process.env.NODE_ENV === 'production') {

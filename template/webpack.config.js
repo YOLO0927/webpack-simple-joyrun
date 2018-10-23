@@ -2,13 +2,27 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+var CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: '{{ name }}',
+      template: './src/index.html',
+      filename: path.resolve(__dirname, './index.html'),
+      inject: true,
+      alwaysWriteToDisk: false
+    }),
+    new HtmlWebpackHarddiskPlugin({
+      outputPath: path.resolve(__dirname, './index.html')
+    }),
+    new CleanWebpackPlugin(['dist'])
+  ],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: process.env.NODE_ENV === 'production' ? '/activity/dist/' : '/dist/',
-    filename: 'build.js'
+    filename: process.env.NODE_ENV === 'production' ? 'build.[chunkhash:5].js' : 'build.js'
   },
   module: {
     rules: [

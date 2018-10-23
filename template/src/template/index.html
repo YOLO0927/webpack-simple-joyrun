@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-itunes-app" content="app-id=881766160">
+    <script type="text/javascript">
+      (function () {
+        var timer = null;
+        function setFontSize () {
+          document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+        }
+        window.addEventListener('resize', function () {
+          clearTimeout(timer)
+          timer = setTimeout(setFontSize, 300)
+        })
+        setFontSize()
+      })()
+    </script>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="//joyrun-activity.b0.upaiyun.com/huodong/js/jquery-3.1.1.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/js/jquery.cookie.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/app/nativeService1.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/js/share.js"></script>
+    <script src="//joyrun-activity.b0.upaiyun.com/common/js/js_app_api.js"></script>
+    <script src="//webevent.thejoyrun.com/common/app/main-1.0.js"></script>
+    <script>
+      // 非 app 内下方浮窗
+      if(!$.cookie('ypcookie')) {
+        var index_url = encodeURIComponent(window.location.href)
+        var data = {
+            "id":"openWeb",
+            "url":index_url
+          };
+          jsRunApi.openJS(data);
+      }
+      // 百度统计
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?7cfaa882ea03f1adfe434be26cc8a294";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  </body>
+</html>

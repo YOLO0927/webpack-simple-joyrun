@@ -113,7 +113,25 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: '{{ name }}',
+      template: 'src/template/index.html',
+      filename: path.resolve(__dirname, './index.html'),
+      inject: true,
+      hash: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      alwaysWriteToDisk: true
+    }),
+    new HtmlWebpackHarddiskPlugin({
+      outputPath: path.resolve(__dirname, './index.html')
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {

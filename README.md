@@ -20,7 +20,7 @@
 7.  增加 ESlint 的引入来规范代码风格，目前会询问是否使用，若使用，则会询问选择 ESlint 初始配置模板，目前统一默认只有一个选项 Standard，以后如果有需要，再进行模板添加，已在 ESlint 全局变量配置中添加了 $ 变量，由此避免 Eslint 对外部 script 引入导致的 $ 警告错误;
 8.  引入 `src/template/index.html` 作为模板来生成项目首页 `/index.html`, 并引入 `html-webpack-harddisk-plugin` 插件使生产环境下打包时可以重写 `html-webpack-plugin` 生成文件的路径而不会使其默认一定是在指定出口目录下的相对路径。
 9.  每次生产环境下 build 会在生成 dist/build.[hash:5].js 来解决服务器 nginx 的静态资源缓存问题，并且会自动利用 `src/template/index.html` 的模板文件生成新的 `/index.html` 脚本路径将自动注入。
-10. 如若对模板有特殊的模块分割或其他需求，可以自行将模板由 html => ejs 或其他来做模板首页内的代码分割或文件分割。
+10. 如若对模板有特殊的模块分割或其他需求，可以自行将模板由 html => ejs 或其他来做模板首页，并对其进行代码分割或文件分割等。
 
 **注： 由于 `html-webpack-harddisk-plugin` 插件是使用 `html-webpack-plugin` 的 after-emit(生成完毕并输出到内存后触发此钩子) hooks 异步触发生成文件的，所以在启动 dev-server 前我们会先使用 webpack build 一次(此时环境是 development 所以不用担心过多的优化)用于生成可读的 index.html 作为物理文件来进行本地 express 的访问路径，在此后修改代码热重载或热替换时将会自动读取内存中的脚本，所以我们引入了 clean-webpack-plugin 清除多余的 dev 下第一次生成 dist/*.js**
 

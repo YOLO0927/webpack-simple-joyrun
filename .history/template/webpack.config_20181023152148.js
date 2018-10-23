@@ -17,7 +17,6 @@ module.exports = {
     new HtmlWebpackHarddiskPlugin({
       outputPath: path.resolve(__dirname, './index.html')
     }),
-    new CleanWebpackPlugin(['dist'])
   ],
   output: {
     path: path.resolve(__dirname, './dist'),

@@ -17,7 +17,6 @@ module.exports = {
     new HtmlWebpackHarddiskPlugin({
       outputPath: path.resolve(__dirname, './index.html')
     }),
-    new CleanWebpackPlugin(['dist'])
   ],
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -125,6 +124,7 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
+    new CleanWebpackPlugin(['dist']),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {

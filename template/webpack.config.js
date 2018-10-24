@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: process.env.NODE_ENV === 'production' ? '/activity/dist/' : '/dist/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/activity/{{ name }}/dist/' : '/dist/',
     filename: process.env.NODE_ENV === 'production' ? 'build.[chunkhash:5].js' : 'build.js'
   },
   module: {

@@ -1,8 +1,8 @@
-### 如何使用
+﻿### 如何使用
 
-初始化项目时，模板名为 YOLO0927/webpack-simple-joyrun 即可，因为 vue-init 中是使用 download-git-repo 包的，所以下载模板输入 作者名/仓库名 即可,使用本地模板加上 --offline 参数即可
-> eg1: vue init YOLO0927/webpack-simple-joyrun#master \<project-name\>  
-> eg2: vue init YOLO0927/webpack-simple-joyrun#v1.0.0 \<project-name\>
+初始化项目时，模板名为 YOLO0927/webpack-simple-joyrun#dev 即可，因为 vue-init 中是使用 download-git-repo 包的，所以下载模板输入 作者名/仓库名 即可,使用本地模板加上 --offline 参数即可
+> eg1: vue init YOLO0927/webpack-simple-joyrun#dev \<project-name\>   
+> eg2: vue init YOLO0927/webpack-simple-joyrun#v2.0.0 \<project-name\>
 
 
 ### 与 vue 的2种官方模板有何变动
@@ -18,6 +18,13 @@
     + 路由改变时的动画类型: 会根据是否选择动画而判断是否插入动画样式代码;
 6.  vue-router 主配置文件中增加判断当前执行环境，若为开发环境则 mode 为 `hashmap`，若为生产环境则为 `history`, base 选项也对应判断了;
 7.  增加 ESlint 的引入来规范代码风格，目前会询问是否使用，若使用，则会询问选择 ESlint 初始配置模板，目前统一默认只有一个选项 Standard，以后如果有需要，再进行模板添加，已在 ESlint 全局变量配置中添加了 $ 变量，由此避免 Eslint 对外部 script 引入导致的 $ 警告错误;
+8.  引入 `src/template/index.html` 作为模板来生成项目首页 `/index.html`, 并引入 `html-webpack-harddisk-plugin` 插件使生产环境下打包时可以重写 `html-webpack-plugin` 生成文件的路径而不会使其默认一定是在指定出口目录下的相对路径。
+9.  每次生产环境下 build 会在生成 dist/build.[hash:5].js 来解决服务器 nginx 的静态资源缓存问题，并且会自动利用 `src/template/index.html` 的模板文件生成新的 `/index.html` 脚本路径将自动注入。
+10. 如若对模板有特殊的模块分割或其他需求，可以自行将模板由 html => ejs 或其他来做模板首页，并对其进行代码分割或文件分割等。
+
+**注： 由于 `html-webpack-harddisk-plugin` 插件是使用 `html-webpack-plugin` 的 after-emit(生成完毕并输出到内存后触发此钩子) hooks 异步触发生成文件的，所以在启动 dev-server 前我们会先使用 webpack build 一次(此时环境是 development 所以不用担心过多的优化)用于生成可读的 index.html 作为物理文件来进行本地 express 的访问路径，在此后修改代码热重载或热替换时将会自动读取内存中的脚本，所以我们引入了 clean-webpack-plugin 清除多余的 dev 下第一次生成 dist/*.js 以及多余的以往版本**
+
+  第 8 点ps：直接使用 dev-server 不会像使用 `webpack-dev-middleware` 中间件来启动服务一样自由的调用读取 `html-webpack-plugin` 后的解析文件保存在内存中作为首页打开，dev-server是不会等待 `html-webpack-plugin` 执行后再启动的，所以这里才引入了 `html-webpack-harddisk-plugin` 而不用我自己手动写多一个脚本~
 
 ### 如何简单扩展或创建自己的小模板
 1. 通过查看 vue-cli 文档下方部分了解如何在模板内判断加入的参数及 meta.json 或 meta.js 内的配置过滤器

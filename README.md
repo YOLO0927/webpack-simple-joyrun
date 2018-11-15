@@ -24,6 +24,8 @@
 
 **注： 由于 `html-webpack-harddisk-plugin` 插件是使用 `html-webpack-plugin` 的 after-emit(生成完毕并输出到内存后触发此钩子) hooks 异步触发生成文件的，所以在启动 dev-server 前我们会先使用 webpack build 一次(此时环境是 development 所以不用担心过多的优化)用于生成可读的 index.html 作为物理文件来进行本地 express 的访问路径，在此后修改代码热重载或热替换时将会自动读取内存中的脚本，所以我们引入了 clean-webpack-plugin 清除多余的 dev 下第一次生成 dist/*.js 以及多余的以往版本**
 
+**重要：如果服务使用了nginx，默认会缓存 html 静态文件，那么每次改动 js 文件名时，由于删除了上一次的 js 文件，此时 html 若有缓存会读取上一版本的 js 文件，而此时上一版本已经不在了，所以大家要么手动添加让 nginx 不缓存 html 文件，要么就别删 dist 内原本的 js 文件**
+
   第 8 点ps：直接使用 dev-server 不会像使用 `webpack-dev-middleware` 中间件来启动服务一样自由的调用读取 `html-webpack-plugin` 后的解析文件保存在内存中作为首页打开，dev-server是不会等待 `html-webpack-plugin` 执行后再启动的，所以这里才引入了 `html-webpack-harddisk-plugin` 而不用我自己手动写多一个脚本~
 
 ### 如何简单扩展或创建自己的小模板

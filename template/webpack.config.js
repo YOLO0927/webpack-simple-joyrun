@@ -104,7 +104,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '{{ name }}',
-      template: './src/index.html',
+      template: './src/template/index.html',
       filename: path.resolve(__dirname, './index.html'),
       inject: true,
       alwaysWriteToDisk: false

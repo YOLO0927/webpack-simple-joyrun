@@ -6,7 +6,7 @@
   "license": "{{ license }}",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --hide-modules && webpack-dev-server --open --hot --host webevent.cc",
+    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --hide-modules && webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {

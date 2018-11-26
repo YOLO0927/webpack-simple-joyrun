@@ -111,8 +111,7 @@ module.exports = {
     }),
     new HtmlWebpackHarddiskPlugin({
       outputPath: path.resolve(__dirname, './index.html')
-    }),
-    new CleanWebpackPlugin(['dist'])
+    })
   ],
 }
 
@@ -133,6 +132,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new CleanWebpackPlugin(['dist'])
   ])
 }

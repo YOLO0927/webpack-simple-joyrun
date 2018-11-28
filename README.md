@@ -1,8 +1,7 @@
 ﻿### 如何使用
 
 初始化项目时，模板名为 YOLO0927/webpack-simple-joyrun#dev 即可，因为 vue-init 中是使用 download-git-repo 包的，所以下载模板输入 作者名/仓库名 即可,使用本地模板加上 --offline 参数即可
-> eg1: vue init YOLO0927/webpack-simple-joyrun#dev \<project-name\>   
-> eg2: vue init YOLO0927/webpack-simple-joyrun#v2.0.0 \<project-name\>
+> eg: vue init YOLO0927/webpack-simple-joyrun \<project-name\>   
 
 
 ### 与 vue 的2种官方模板有何变动

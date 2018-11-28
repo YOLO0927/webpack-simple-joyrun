@@ -9,7 +9,7 @@
       "type": "string",
       "required": true,
       "label": "Project description",
-      "default": "A Vue.js project"
+      "default": "Joyrun H5 activity"
     },
     "author": {
       "type": "string",

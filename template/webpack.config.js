@@ -104,15 +104,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '{{ name }}',
-      template: './src/index.html',
+      template: './src/template/index.html',
       filename: path.resolve(__dirname, './index.html'),
       inject: true,
       alwaysWriteToDisk: false
     }),
     new HtmlWebpackHarddiskPlugin({
       outputPath: path.resolve(__dirname, './index.html')
-    }),
-    new CleanWebpackPlugin(['dist'])
+    })
   ],
 }
 
@@ -133,6 +132,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new CleanWebpackPlugin(['dist'])
   ])
 }

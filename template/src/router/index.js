@@ -13,5 +13,8 @@ export default new Router({
       name: 'index',
       component: index
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })

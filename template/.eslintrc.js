@@ -30,6 +30,7 @@ module.exports = {
   },
   globals: {
     "$": true,
-    "nativeService": true
+    "nativeService": true,
+    "jsRunApi": true
   }
 }

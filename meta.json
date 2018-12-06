@@ -63,6 +63,27 @@
         }
       ]
     },
+    "componentLibrary": {
+      "type": "list",
+      "message": "Whether or not to use component library?",
+      "choices": [
+        {
+          "name": "yes, use vux",
+          "value": "vux",
+          "short": "vux"
+        },
+        {
+          "name": "yes, use mint-ui",
+          "value": "mintUi",
+          "short": "mintUi"
+        },
+        {
+          "name": "no",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    },
     "animateType": {
       "type": "list",
       "message": "animation type when the router change",

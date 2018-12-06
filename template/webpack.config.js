@@ -115,6 +115,7 @@ module.exports = {
     })
   ],
 }
+
 {{#if_eq componentLibrary "vux"}}
 module.exports = vuxLoader.merge(module.exports, {
   plugins: [
@@ -125,6 +126,7 @@ module.exports = vuxLoader.merge(module.exports, {
   ]
 })
 {{/if_eq}}
+
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html

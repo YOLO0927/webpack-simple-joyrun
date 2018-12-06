@@ -14,7 +14,12 @@
     "axios": "^0.17.1",
     "vue-axios": "^2.0.2",
     "vue-router": "^3.0.1",
+    {{#if_eq componentLibrary "mintUi"}}
     "mint-ui": "^2.2.13"
+    {{/if_eq}}
+    {{#if_eq componentLibrary "vux"}}
+    "vux": "^2.9.2"
+    {{/if_eq}}
   },
   "browserslist": [
     "> 1%",
@@ -38,9 +43,15 @@
     {{/lint}}
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    {{#if_eq componentLibrary "mintUi"}}
     "babel-plugin-component": "^1.0.0",
+    {{/if_eq}}
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
+    {{#if_eq componentLibrary "vux"}}
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "vux-loader": "^1.2.9",
+    {{/if_eq}}
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",

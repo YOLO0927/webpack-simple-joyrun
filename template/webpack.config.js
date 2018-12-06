@@ -1,5 +1,6 @@
 var path = require('path')
-var webpack = require('webpack')
+var webpack = require('webpack'){{#if_eq componentLibrary "vux"}}
+const vuxLoader = require('vux-loader'){{/if_eq}}
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -114,7 +115,16 @@ module.exports = {
     })
   ],
 }
-
+{{#if_eq componentLibrary "vux"}}
+module.exports = vuxLoader.merge(module.exports, {
+  plugins: [
+    'vux-ui',
+    {
+      name: 'duplicate-style'
+    }
+  ]
+})
+{{/if_eq}}
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html

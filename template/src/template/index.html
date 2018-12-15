@@ -33,11 +33,10 @@
       // 非 app 内下方浮窗
       if(!$.cookie('ypcookie')) {
         var index_url = encodeURIComponent(window.location.href)
-        var data = {
+        jsRunApi.openJS({
           "id": "openWeb",
           "url": index_url
-        };
-        jsRunApi.openJS(data);
+        });
       }
       // 百度统计
       var _hmt = _hmt || [];

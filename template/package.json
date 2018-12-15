@@ -14,10 +14,10 @@
     "vue-axios": "^2.0.2",
     "vue-router": "^3.0.1",
     {{#if_eq componentLibrary "mintUi"}}
-    "mint-ui": "^2.2.13"
+    "mint-ui": "^2.2.13",
     {{/if_eq}}
     {{#if_eq componentLibrary "vux"}}
-    "vux": "^2.9.2"
+    "vux": "^2.9.2",
     {{/if_eq}}
     "axios": "^0.17.1"
   },
